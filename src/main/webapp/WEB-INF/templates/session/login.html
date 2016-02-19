@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorator="layout/layout">
+    <head>
+        <title>シェアードショップ</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body layout:fragment="body">
+        <div>ログイン</div>
+        <form method="post" th:action="@{/login}" class="ui form">
+            ユーザーID:<input type="text" name="userId"/>
+            パスワード:<input type="password" name="password"/>
+            <input type="submit" value="ログイン" class="ui button"/>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title>シェアードショップ</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" th:href="@{/js/libs/semantic-ui/semantic.min.css}" />
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
+    </head>
+    <body class="ui container">
+        <h1 class="site-title">シェアードショップ</h1>
+        <div th:if="${session.userId}" class="login-logout">
+            <span th:text="${session.userId}"></span>さん、ようこそ
+            <div>
+                <a th:href="@{/logout}">マイページ(未実装)</a>
+                / <a th:href="@{/logout}">ログアウト</a>
+            </div>
+        </div>
+        <div th:unless="${session.userId}" class="login-logout">
+            ゲストさん、ようこそ
+            <div>
+                <a th:href="@{/login}">ログイン</a>
+                / <a th:href="@{/login}">会員登録(未実装)</a>
+            </div>
+        </div>
+        
+        <div class="ui four item menu">
+            <a class="item" th:href="@{/}">トップ</a>
+            <a class="item" th:href="@{/items}">商品一覧</a>
+            <a class="item" th:href="@{/items}">買い物かご(未実装)</a>
+            <a class="item" th:href="@{/items}">お問い合わせ(未実装)</a>
+        </div>
+                
+        <section layout:fragment="body"></section>
+    </body>
+</html>

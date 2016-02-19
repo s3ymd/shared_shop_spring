@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorator="layout/layout">
+    <head>
+        <title>シェアードショップ</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body layout:fragment="body">
+        <div>商品一覧</div>
+        <a th:href="@{/items/new}">新規作成</a>
+
+        <table class="ui table">
+            <thead>
+                <tr>
+                    <th>商品番号</th>
+                    <th>商品名</th>
+                    <th>価格</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="item: ${items}">
+                    <td >
+                        <a th:href="@{/items/}+${item.id}" th:text="${item.id}"></a>
+                    </td>
+                    <td th:text="${item.name}"></td>
+                    <td th:text="${item.price}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

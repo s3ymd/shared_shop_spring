@@ -1,0 +1,9 @@
+.login-logout {
+    float: right;
+}
+.site-title {
+    float: left;
+}
+.header-end {
+    clear: both;
+}

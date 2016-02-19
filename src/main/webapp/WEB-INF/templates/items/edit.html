@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorator="layout/layout">
+    <head>
+        <title>シェアードショップ</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body layout:fragment="body">
+        <div>商品の編集</div>
+        
+        <form method="post" th:action="@{/items/}+${item.id}+'/update'" class="ui form">
+            商品名:<input type="text" name="name" th:value="${item.name}" required="required"/>
+            価格:<input type="number" name="price" th:value="${item.price}" min="0" step="1" required="required"/>
+            <input type="submit" value="更新する" class="ui button"/>
+        </form>
+
+    </body>
+</html>
